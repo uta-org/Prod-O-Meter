@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prod-O-Meter", "Prod-O-Meter\Prod-O-Meter.csproj", "{B3BC090F-0978-40D9-8580-A9FC9416DCFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathHinter", "..\PathHinter\PathHinter\PathHinter.csproj", "{479DBBCE-2037-4072-A26D-991651F77B6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3BC090F-0978-40D9-8580-A9FC9416DCFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BC090F-0978-40D9-8580-A9FC9416DCFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BC090F-0978-40D9-8580-A9FC9416DCFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BC090F-0978-40D9-8580-A9FC9416DCFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{479DBBCE-2037-4072-A26D-991651F77B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{479DBBCE-2037-4072-A26D-991651F77B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{479DBBCE-2037-4072-A26D-991651F77B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{479DBBCE-2037-4072-A26D-991651F77B6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC02F223-B45D-4FC4-A0AD-86CEE9A546EE}
+	EndGlobalSection
+EndGlobal
