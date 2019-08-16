@@ -223,6 +223,7 @@ namespace Prod_O_Meter
         public static bool ContainsLine(string line)
         {
             return Languages.Any(line.StartsWith);
+            //return Languages.Any(line.Contains);
         }
 
         public static string[] GetExtensions(Languages lang)

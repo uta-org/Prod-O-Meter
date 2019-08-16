@@ -73,7 +73,8 @@ namespace Prod_O_Meter
             }
 
             File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "projectList.json"), JsonConvert.SerializeObject(projectList, Formatting.Indented));
-            // TODO: Serialize project list
+
+            MainMenu.Display();
         }
 
         private static void ListProjectPaths()
@@ -198,10 +199,15 @@ namespace Prod_O_Meter
 
             var lines = Regex.Split(clocDump, @"\r?\n|\r");
 
+            bool flagLang = false;
+
             foreach (var line in lines)
             {
-                if (!line.StartsWith(langNeedle))
+                if (!line.StartsWith(langNeedle) && !flagLang)
                     continue;
+
+                if (!flagLang)
+                    flagLang = true;
 
                 if (ProjectAspects.ContainsLine(line))
                 {
@@ -231,11 +237,11 @@ namespace Prod_O_Meter
 
             int? totalLines = GetLines(projectData.LangData, filterLang);
 
-            if (!totalLines.HasValue)
-                throw new Exception();
+            //if (!totalLines.HasValue)
+            //    throw new Exception();
 
             projectData.Path = path;
-            projectData.Lines = totalLines.Value;
+            projectData.Lines = totalLines.HasValue ? totalLines.Value : -1;
             projectData.Chars = GetChars(path, filterLang, out int fileCount);
             projectData.Files = fileCount;
 
@@ -254,7 +260,8 @@ namespace Prod_O_Meter
 
         private static long GetChars(string path, Languages filterLang, out int fileCount)
         {
-            var files = FileSystem.GetFiles(path, SearchOption.SearchAllSubDirectories, ProjectAspects.GetExtensions(filterLang)).ToArray();
+            string ext = string.Join(";", ProjectAspects.GetExtensions(filterLang));
+            var files = Directory.GetFiles(path, ext, System.IO.SearchOption.AllDirectories).ToArray();
 
             fileCount = files.Length;
             return files.Select(file => new FileInfo(file).Length).Sum();
